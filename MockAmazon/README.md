@@ -1,4 +1,4 @@
-# 🛒 Mock Amazon Store – Module 2 (CMPS 480)
+#  Mock Amazon Store – Module 2 (CMPS 480)
 
 A simple full-stack mock e-commerce application built for **CMPS 480 – Software Engineering**.
 
@@ -6,9 +6,9 @@ This project demonstrates implementation of agreed-upon use cases using a workin
 
 ---
 
-## 🚀 Features Implemented (Module 2)
+##  Features Implemented (Module 2)
 
-### 🔎 Product Functionality
+###  Product Functionality
 - Search products by name
 - Filter by category
 - Filter by price range (min / max)
@@ -17,7 +17,7 @@ This project demonstrates implementation of agreed-upon use cases using a workin
   - Price: High → Low
   - Rating (Descending)
 
-### 🛒 Cart Functionality
+###  Cart Functionality
 - Add products to cart
 - Increase quantity if item already exists
 - Remove products from cart
@@ -26,7 +26,7 @@ This project demonstrates implementation of agreed-upon use cases using a workin
 
 ---
 
-## 🧱 Technology Stack
+##  Technology Stack
 
 ### Frontend
 - React
@@ -39,7 +39,7 @@ This project demonstrates implementation of agreed-upon use cases using a workin
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 MockAmazon/
@@ -51,20 +51,20 @@ MockAmazon/
 
 ---
 
-## ⚙️ Prerequisites
+##  Prerequisites
 
 - Node.js (v14 or higher)
 - npm
 
 ---
 
-## ▶️ Running the Project
+##  Running the Project
 
 The backend and frontend must be run in **separate terminal windows**.
 
 ---
 
-### 1️⃣ Start the Backend Server
+### 1️ Start the Backend Server
 
 Open a terminal and run:
 
@@ -88,7 +88,7 @@ http://localhost:3001
 
 ---
 
-### 2️⃣ Start the Frontend Application
+### 2️ Start the Frontend Application
 
 Open a **new terminal window** and run:
 
@@ -112,10 +112,10 @@ http://localhost:5173
 
 ---
 
-## 🧪 Usage
+##  Usage
 
 1. Open your browser at:  
-   👉 http://localhost:5173  
+    http://localhost:5173  
 
 2. Use the search bar to search products  
 3. Filter by category or price range  
@@ -126,17 +126,17 @@ http://localhost:5173
 
 ---
 
-## 📌 Module 2 Requirements Covered
+##  Module 2 Requirements Covered
 
-- ✅ Functional working interface  
-- ✅ Implemented agreed use cases  
-- ✅ Multiple components/pages  
-- ✅ Styled with CSS  
-- ✅ Working frontend ↔ backend integration  
+-  Functional working interface  
+-  Implemented agreed use cases  
+-  Multiple components/pages  
+-  Styled with CSS  
+-  Working frontend ↔ backend integration  
 
 ---
 
-## 🔮 Future Improvements
+##  Future Improvements
 
 - Database integration  
 - User authentication  
