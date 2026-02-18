@@ -1,100 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mock Amazon Store — Module 2B</title>
-    <link rel="stylesheet" href="./style.css" />
-  </head>
+<html>
+<head>
+    <title>Mock Amazon - Module 2B</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-  <body>
-    <header class="header">
-      <div class="brand">
-        <div class="logo">🛒</div>
-        <div>
-          <h1>Mock Amazon Store</h1>
-          <p class="sub">Module 2B — Working Interface + Mock Server</p>
-        </div>
-      </div>
+<h1>Mock Amazon Store</h1>
 
-      <div class="cart">
-        <span class="cart-label">Cart</span>
-        <span id="cartCount" class="pill">0</span>
-        <span id="cartTotal" class="pill">$0.00</span>
-      </div>
-    </header>
+<div class="controls">
+    <input type="text" id="searchInput" placeholder="Search products...">
+    
+    <select id="categorySelect">
+        <option value="All">All Categories</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Fashion">Fashion</option>
+        <option value="Home">Home</option>
+    </select>
 
-    <main class="container">
-      <section class="controls card">
-        <div class="field">
-          <label for="searchInput">Search</label>
-          <input id="searchInput" type="text" placeholder="Search products by name..." />
-        </div>
+    <select id="sortSelect">
+        <option value="">Sort</option>
+        <option value="price_asc">Price: Low to High</option>
+        <option value="price_desc">Price: High to Low</option>
+        <option value="rating_desc">Rating: High to Low</option>
+    </select>
+</div>
 
-        <div class="field">
-          <label for="categorySelect">Category</label>
-          <select id="categorySelect">
-            <option value="all">All</option>
-          </select>
-        </div>
+<div id="productContainer" class="grid"></div>
 
-        <div class="field">
-          <label for="sortSelect">Sort</label>
-          <select id="sortSelect">
-            <option value="relevance">Relevance</option>
-            <option value="price-asc">Price: Low → High</option>
-            <option value="price-desc">Price: High → Low</option>
-            <option value="name-asc">Name: A → Z</option>
-            <option value="name-desc">Name: Z → A</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label>&nbsp;</label>
-          <button id="resetBtn" class="btn secondary" type="button">Reset</button>
-        </div>
-      </section>
-
-      <section class="status">
-        <div id="loading" class="notice hidden">Loading products (mock server)...</div>
-        <div id="error" class="notice error hidden"></div>
-      </section>
-
-      <section class="gridWrap">
-        <div class="gridHeader">
-          <h2>Products</h2>
-          <span id="resultsCount" class="muted">0 items</span>
-        </div>
-
-        <section id="productGrid" class="grid"></section>
-      </section>
-
-      <section class="card footerCard">
-        <h3>What this demonstrates (Module 2B)</h3>
-        <ul>
-          <li>Working UI for Search & Filter use case</li>
-          <li>Mock server interaction (hardcoded JSON + simulated delay)</li>
-          <li>Dynamic rendering of results</li>
-          <li>Minimal but functional interface</li>
-        </ul>
-      </section>
-    </main>
-
-    <!-- Simple modal -->
-    <div id="modalBackdrop" class="backdrop hidden" aria-hidden="true">
-      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-        <div class="modalHeader">
-          <h3 id="modalTitle">Product Details</h3>
-          <button id="closeModalBtn" class="iconBtn" aria-label="Close modal">✕</button>
-        </div>
-        <div id="modalBody" class="modalBody"></div>
-        <div class="modalFooter">
-          <button id="modalAddBtn" class="btn" type="button">Add to cart</button>
-        </div>
-      </div>
-    </div>
-
-    <script src="./script.js"></script>
-  </body>
+<script src="script.js"></script>
+</body>
 </html>
-
