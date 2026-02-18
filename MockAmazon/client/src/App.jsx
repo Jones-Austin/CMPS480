@@ -8,6 +8,7 @@ function App() {
   const [minPrice, setMinPrice] = useState('')
   const [maxPrice, setMaxPrice] = useState('')
   const [sort, setSort] = useState('')
+  const [cart, setCart] = useState([])
 
   useEffect(() => {
     fetchProducts()
@@ -32,10 +33,25 @@ function App() {
 
   const handleSearch = (e) => {
     e.preventDefault()
-    // Trigger generic fetch via useEffect dependency by ensuring state is updated
-    // If we want immediate search on button click we could call fetchProducts() directly
-    // but useEffect handles it reactively.
   }
+
+  const addToCart = (product) => {
+    setCart((prev) => {
+      const existing = prev.find((item) => item.id === product.id)
+      if (existing) {
+        return prev.map((item) =>
+          item.id === product.id ? { ...item, qty: item.qty + 1 } : item
+        )
+      }
+      return [...prev, { ...product, qty: 1 }]
+    })
+  }
+
+  const removeFromCart = (productId) => {
+    setCart((prev) => prev.filter((item) => item.id !== productId))
+  }
+
+  const cartCount = cart.reduce((sum, item) => sum + item.qty, 0)
 
   return (
     <div className="app-container">
@@ -64,7 +80,7 @@ function App() {
         <div className="nav-links">
           <span>Hello, Sign in</span>
           <span>Orders</span>
-          <span>Cart</span>
+          <span>Cart ({cartCount})</span>
         </div>
       </header>
 
@@ -103,6 +119,24 @@ function App() {
           </div>
         </aside>
 
+        <section className="cart-panel">
+          <h3>Your Cart</h3>
+          {cart.length === 0 ? (
+            <p>Cart is empty.</p>
+          ) : (
+            <ul>
+              {cart.map((item) => (
+                <li key={item.id} className="cart-item">
+                  <span>
+                    {item.name} (x{item.qty})
+                  </span>
+                  <button onClick={() => removeFromCart(item.id)}>Remove</button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
+
         <section className="product-grid">
           {products.length === 0 ? (
             <p>No products found.</p>
@@ -125,7 +159,12 @@ function App() {
                     <span className="fraction">{(product.price % 1).toFixed(2).substring(2)}</span>
                   </div>
                   <div className="prime-badge">Prime</div>
-                  <button className="add-to-cart">Add to Cart</button>
+                  <button 
+                    className="add-to-cart"
+                    onClick={() => addToCart(product)}
+                  >
+                    Add to Cart
+                  </button>
                 </div>
               </div>
             ))
