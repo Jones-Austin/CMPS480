@@ -1,52 +1,134 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f8;
-    margin: 0;
-    padding: 20px;
+// Real Products from Backend
+const products = [
+    {
+        id: 1,
+        name: "Wireless Noise Cancelling Headphones",
+        category: "Electronics",
+        price: 199.99,
+        rating: 4.5,
+        image: "https://placehold.co/300x300?text=Headphones"
+    },
+    {
+        id: 2,
+        name: "Smartphone 5G - 128GB",
+        category: "Electronics",
+        price: 699.99,
+        rating: 4.2,
+        image: "https://placehold.co/300x300?text=Smartphone"
+    },
+    {
+        id: 3,
+        name: "Running Shoes",
+        category: "Fashion",
+        price: 89.99,
+        rating: 4.7,
+        image: "https://placehold.co/300x300?text=Shoes"
+    },
+    {
+        id: 4,
+        name: "Coffee Maker Programmatic",
+        category: "Home",
+        price: 49.99,
+        rating: 4.0,
+        image: "https://placehold.co/300x300?text=Coffee+Maker"
+    },
+    {
+        id: 5,
+        name: "Gaming Laptop Pro",
+        category: "Electronics",
+        price: 1299.99,
+        rating: 4.8,
+        image: "https://placehold.co/300x300?text=Laptop"
+    },
+    {
+        id: 6,
+        name: "Cotton T-Shirt Pack",
+        category: "Fashion",
+        price: 29.99,
+        rating: 4.3,
+        image: "https://placehold.co/300x300?text=T-Shirt"
+    },
+    {
+        id: 7,
+        name: "Bluetooth Speaker",
+        category: "Electronics",
+        price: 59.99,
+        rating: 4.1,
+        image: "https://placehold.co/300x300?text=Speaker"
+    },
+    {
+        id: 8,
+        name: "Digital Camera 4K",
+        category: "Electronics",
+        price: 450.00,
+        rating: 4.6,
+        image: "https://placehold.co/300x300?text=Camera"
+    }
+];
+
+// Simulated Server Call 
+function getProducts() {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve(products), 300);
+    });
 }
 
-h1 {
-    text-align: center;
+const container = document.getElementById("productContainer");
+const searchInput = document.getElementById("searchInput");
+const categorySelect = document.getElementById("categorySelect");
+const sortSelect = document.getElementById("sortSelect");
+
+function renderProducts(list) {
+    container.innerHTML = "";
+
+    list.forEach(product => {
+        const card = document.createElement("div");
+        card.className = "card";
+
+        card.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p>Category: ${product.category}</p>
+            <p>Rating: ⭐ ${product.rating}</p>
+            <p class="price">$${product.price}</p>
+        `;
+
+        container.appendChild(card);
+    });
 }
 
-.controls {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
+function filterProducts() {
+    let filtered = [...products];
+
+    const query = searchInput.value.toLowerCase();
+    const category = categorySelect.value;
+    const sort = sortSelect.value;
+
+    if (query) {
+        filtered = filtered.filter(p =>
+            p.name.toLowerCase().includes(query)
+        );
+    }
+
+    if (category !== "All") {
+        filtered = filtered.filter(p =>
+            p.category === category
+        );
+    }
+
+    if (sort === "price_asc") {
+        filtered.sort((a,b) => a.price - b.price);
+    } else if (sort === "price_desc") {
+        filtered.sort((a,b) => b.price - a.price);
+    } else if (sort === "rating_desc") {
+        filtered.sort((a,b) => b.rating - a.rating);
+    }
+
+    renderProducts(filtered);
 }
 
-input, select {
-    padding: 8px;
-    font-size: 14px;
-}
+searchInput.addEventListener("input", filterProducts);
+categorySelect.addEventListener("change", filterProducts);
+sortSelect.addEventListener("change", filterProducts);
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 15px;
-}
-
-.card {
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.card img {
-    width: 100%;
-    border-radius: 6px;
-}
-
-.card h3 {
-    margin: 10px 0 5px;
-}
-
-.card p {
-    margin: 5px 0;
-}
-
-.price {
-    font-weight: bold;
-}
+getProducts().then(renderProducts);
