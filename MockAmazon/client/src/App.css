@@ -234,3 +234,38 @@ body {
 .add-to-cart:hover {
   background-color: #f7ca00;
 }
+
+/* Cart */
+.cart-panel {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.cart-panel ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-item button {
+  background: #ffd814;
+  border: 1px solid #fcd200;
+  padding: 6px 10px;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.cart-item button:hover {
+  background: #f7ca00;
+}
+
