@@ -1,57 +1,149 @@
-# Mock Amazon Store
+# 🛒 Mock Amazon Store – Module 2 (CMPS 480)
 
-A simple mock e-commerce application demonstrating **Use Case 1: Search & Filter**. Built with React (Frontend) and Node.js/Express (Backend).
+A simple full-stack mock e-commerce application built for **CMPS 480 – Software Engineering**.
 
-## Prerequisites
+This project demonstrates implementation of agreed-upon use cases using a working interface with React (Frontend) and Node.js/Express (Backend).
 
--   [Node.js](https://nodejs.org/) (v14 or higher) installed on your machine.
+---
 
-## Project Structure
+## 🚀 Features Implemented (Module 2)
 
--   `client/`: Frontend application (Vite + React).
--   `server/`: Backend API (Express).
+### 🔎 Product Functionality
+- Search products by name
+- Filter by category
+- Filter by price range (min / max)
+- Sort products:
+  - Price: Low → High
+  - Price: High → Low
+  - Rating (Descending)
 
-## Getting Started
+### 🛒 Cart Functionality
+- Add products to cart
+- Increase quantity if item already exists
+- Remove products from cart
+- Dynamic cart item counter in header
+- Cart panel displaying selected items
 
-You will need to run the **Backend** and **Frontend** in separate terminal windows.
+---
 
-### 1. Start the Backend Server
+## 🧱 Technology Stack
 
-1.  Open a terminal.
-2.  Navigate to the server directory:
-    ```bash
-    cd server
-    ```
-3.  Install dependencies:
-    ```bash
-    npm install
-    ```
-4.  Start the server:
-    ```bash
-    node index.js
-    ```
-    *You should see: `Mock Amazon API running at http://localhost:3001`*
+### Frontend
+- React
+- Vite
+- CSS
 
-### 2. Start the Frontend Application
+### Backend
+- Node.js
+- Express
 
-1.  Open a **new** terminal window.
-2.  Navigate to the client directory:
-    ```bash
-    cd client
-    ```
-3.  Install dependencies:
-    ```bash
-    npm install
-    ```
-4.  Start the development server:
-    ```bash
-    npm run dev
-    ```
-    *You should see: `Local: http://localhost:5173/`*
+---
 
-### 3. Usage
+## 📂 Project Structure
 
-1.  Open your browser to [http://localhost:5173](http://localhost:5173).
-2.  **Search**: Type a product name (e.g., "headphone").
-3.  **Filter**: Use the sidebar to filter by Category or Price.
-4.  **Sort**: Use the dropdown to sort results.
+```
+MockAmazon/
+│
+├── client/        # React (Vite) frontend
+├── server/        # Express backend API
+└── README.md      # Project documentation
+```
+
+---
+
+## ⚙️ Prerequisites
+
+- Node.js (v14 or higher)
+- npm
+
+---
+
+## ▶️ Running the Project
+
+The backend and frontend must be run in **separate terminal windows**.
+
+---
+
+### 1️⃣ Start the Backend Server
+
+Open a terminal and run:
+
+```bash
+cd MockAmazon/server
+npm install
+node index.js
+```
+
+You should see:
+
+```
+Mock Amazon API running at http://localhost:3001
+```
+
+Backend runs at:
+
+```
+http://localhost:3001
+```
+
+---
+
+### 2️⃣ Start the Frontend Application
+
+Open a **new terminal window** and run:
+
+```bash
+cd MockAmazon/client
+npm install
+npm run dev
+```
+
+You should see:
+
+```
+Local: http://localhost:5173/
+```
+
+Frontend runs at:
+
+```
+http://localhost:5173
+```
+
+---
+
+## 🧪 Usage
+
+1. Open your browser at:  
+   👉 http://localhost:5173  
+
+2. Use the search bar to search products  
+3. Filter by category or price range  
+4. Sort product results  
+5. Click **Add to Cart**  
+6. Remove items from the cart  
+7. Observe the dynamic cart counter updating  
+
+---
+
+## 📌 Module 2 Requirements Covered
+
+- ✅ Functional working interface  
+- ✅ Implemented agreed use cases  
+- ✅ Multiple components/pages  
+- ✅ Styled with CSS  
+- ✅ Working frontend ↔ backend integration  
+
+---
+
+## 🔮 Future Improvements
+
+- Database integration  
+- User authentication  
+- Persistent cart storage  
+- Deployment to live server  
+- Additional use cases  
+
+---
+
+
